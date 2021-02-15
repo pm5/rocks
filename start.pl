@@ -2,7 +2,17 @@
 
 use Mojolicious::Lite -signatures;
 use Moo;
+use Rocks::Models::Project;
+use Rocks::Models::Event;
 
-get "/" => sub ($c) { $c->render(text => "howdy") };
+my $e = Rocks::Models::Event->new(name => "g0v 大松");
+my $p = Rocks::Models::Project->from_record({
+        name => "woot",
+        foo => "bar",
+        term => 1,
+        event => $e,
+        three_words => [qw[happy hacking]],
+    });
 
-app->start;
+use Data::Dumper;
+say Dumper($p);

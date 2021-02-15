@@ -8,3 +8,4 @@ requires "Moo";
 requires "Type::Tiny";
 requires "Mojolicious";
 requires "Mojo::Pg";
+requires "namespace::autoclean";
