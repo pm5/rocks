@@ -14,7 +14,7 @@ has purpose => ( is => "ro", isa => Str );
 has category => ( is => "ro", isa => Str );
 has date => ( is => "ro", isa => Str );
 has last_action_date => ( is => "ro", isa => Str );
-has event => ( is => "ro", isa => InstanceOf["Rocks::Models::Event"] );
+has started_from => ( is => "ro", isa => InstanceOf["Rocks::Models::Event"] );
 has term => ( is => "ro", isa => PositiveOrZeroInt );
 has three_brief => ( is => "ro", isa => ArrayRef[Str] );
 has manpower => ( is => "ro", isa => Str );
@@ -39,5 +39,7 @@ sub from_record ($class, $record)
 {
     $class->new(%$record);
 }
+
+sub load_from_github ($self) {}
 
 1

@@ -14,4 +14,6 @@ sub from_record ($class, $record)
     $class->new(%$record);
 }
 
+sub presents ($self) { }
+
 1;
