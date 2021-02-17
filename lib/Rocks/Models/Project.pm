@@ -1,8 +1,10 @@
 package Rocks::Models::Project;
 
+use v5.26;
 use Moo;
 use Types::Standard qw[Str Enum ArrayRef Maybe InstanceOf];
 use Types::Common::Numeric qw[PositiveOrZeroInt];
+use Type::Params qw[compile];
 use namespace::autoclean;
 
 use feature qw[signatures];
@@ -27,6 +29,7 @@ has github_issues => ( is => "ro", isa => PositiveOrZeroInt );
 has facebook => ( is => "ro", isa => Maybe[Str] );
 has slack_id => ( is => "ro", isa => Maybe[Str] );
 has slack_channel => ( is => "ro", isa => Maybe[Str] );
+has hackmd_tags => ( is => "ro", isa => ArrayRef[Str] );
 has email => ( is => "ro", isa => Str );
 has telegram => ( is => "ro", isa => Str );
 has continue_contribute => ( is => "ro", isa => Enum[qw[yes no other]] );
@@ -40,6 +43,14 @@ sub from_record ($class, $record)
     $class->new(%$record);
 }
 
-sub load_from_github ($self) {}
+sub add_present
+{
+    state $check = compile(InstanceOf["Rocks::Models::Present"]);
+    my $self = shift
+    my ($present) = $check->(@_);
+}
 
-1
+sub pull_from_github ($self) {}
+sub pull_from_hackmd ($self) {}
+
+1;

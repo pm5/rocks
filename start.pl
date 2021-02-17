@@ -1,5 +1,6 @@
 #!/usr/bin/env perl -w
 
+use v5.26;
 use Mojolicious::Lite -signatures;
 use Moo;
 use Rocks::Models::Project;
