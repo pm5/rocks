@@ -1,5 +1,5 @@
 
-g0v.rock
+g0v.rocks
 ===
 
 A hub of all people and things g0v.
