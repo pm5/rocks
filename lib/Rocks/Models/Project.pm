@@ -46,7 +46,7 @@ sub from_record ($class, $record)
 sub add_present
 {
     state $check = compile(InstanceOf["Rocks::Models::Present"]);
-    my $self = shift
+    my $self = shift;
     my ($present) = $check->(@_);
 }
 
