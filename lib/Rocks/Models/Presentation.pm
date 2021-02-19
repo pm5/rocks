@@ -1,4 +1,4 @@
-package Rocks::Models::Present;
+package Rocks::Models::Presentation;
 
 use v5.26;
 use Moo;

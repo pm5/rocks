@@ -10,7 +10,7 @@ use feature qw[signatures];
 no warnings qw[experimental::signatures];
 
 has name => ( is => "ro", isa => Str );
-has presents => ( is => "ro", isa => ArrayRef[InstanceOf["Rocks::Models::Present"]] );
+has presents => ( is => "ro", isa => ArrayRef[InstanceOf["Rocks::Models::Presentation"]] );
 
 sub from_record ($class, $record)
 {
