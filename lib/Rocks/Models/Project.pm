@@ -1,5 +1,13 @@
 package Rocks::Models::Project;
 
+=pod
+
+=head1 NAME
+
+Rocks::Models::Project
+
+=cut
+
 use v5.26;
 use Moo;
 use Types::Standard qw[Str Enum ArrayRef Maybe InstanceOf];
@@ -9,6 +17,14 @@ use namespace::autoclean;
 
 use feature qw[signatures];
 no warnings qw[experimental::signatures];
+
+=head1 PROPERTIES
+
+=over 4
+
+=item C<id>
+
+=cut
 
 has id => ( is => "ro", isa => Str );
 has name => ( is => "ro", isa => Str );
@@ -42,15 +58,32 @@ sub from_record ($class, $record)
 {
     $class->new(%$record);
 }
+=pod
 
-sub add_present
+=item C<presentations>
+
+    $myproj->pull($storage);
+    $myproj->add_presentation($pres);
+    $myproj->push($storage);
+    my @press = $myproj->presentations;
+
+=cut
+
+sub presentations ($self, $storage)
 {
-    state $check = compile(InstanceOf["Rocks::Models::Presentation"]);
-    my $self = shift;
-    my ($present) = $check->(@_);
+}
+
+sub add_presentation ($self, $pres)
+{
 }
 
 sub pull_from_github ($self) {}
 sub pull_from_hackmd ($self) {}
+
+=pod
+
+=back
+
+=cut
 
 1;
