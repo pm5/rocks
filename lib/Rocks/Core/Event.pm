@@ -1,4 +1,4 @@
-package Rocks::Models::Event;
+package Rocks::Core::Event;
 
 use v5.26;
 use Moo;
@@ -13,7 +13,7 @@ no warnings qw[experimental::signatures];
 has happened_at => ( is => "ro", isa => InstanceOf["DateTime"] );
 has name => ( is => "ro", isa => Str );
 
-has presentations => ( is => "ro", isa => ArrayRef[InstanceOf["Rocks::Models::Presentation"]] );
+has presentations => ( is => "ro", isa => ArrayRef[InstanceOf["Rocks::Core::Presentation"]] );
 
 sub from_record ($class, $record)
 {
@@ -22,7 +22,7 @@ sub from_record ($class, $record)
 
 sub add_presentation
 {
-    state $check = compile(InstanceOf["Rocks::Models::Presentation"]);
+    state $check = compile(InstanceOf["Rocks::Core::Presentation"]);
     my $self = shift;
     my ($pres) = $check->(@_);
     die "did not pass constraints" unless $pres->event == $self;

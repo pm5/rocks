@@ -1,4 +1,4 @@
-package Rocks::Models::Presentation;
+package Rocks::Core::Presentation;
 
 use v5.26;
 use Moo;
@@ -12,8 +12,8 @@ has id => ( is => "ro", isa => Str );
 has slides => ( is => "ro", isa => Str );
 has video => ( is => "ro", isa => Str );
 has happened_at => ( is => "ro", isa => Str );
-has event => ( is => "ro", isa => InstanceOf["Rocks::Models::Event"] );
-has project => ( is => "ro", isa => InstanceOf["Rocks::Models::Project"] );
+has event => ( is => "ro", isa => InstanceOf["Rocks::Core::Event"] );
+has project => ( is => "ro", isa => InstanceOf["Rocks::Core::Project"] );
 
 sub BUILD($self, $items)
 {

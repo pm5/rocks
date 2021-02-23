@@ -1,9 +1,9 @@
 use v5.26;
 use Test::More;
 
-use aliased "Rocks::Models::Project";
-use aliased "Rocks::Models::Presentation";
-use aliased "Rocks::Models::Event";
+use aliased "Rocks::Core::Project";
+use aliased "Rocks::Core::Presentation";
+use aliased "Rocks::Core::Event";
 use DateTime;
 
 sub test_basics
