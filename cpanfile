@@ -15,3 +15,5 @@ requires "Dotenv";
 requires "namespace::autoclean";
 
 requires "DateTime";
+requires "Google::RestApi";
+requires "YAML::Dumper";
