@@ -1,10 +1,10 @@
-package Rocks::Core::Project;
+package Rocks::Models::Project;
 
 =pod
 
 =head1 NAME
 
-Rocks::Core::Project
+Rocks::Models::Project
 
 =cut
 
@@ -32,7 +32,7 @@ has purpose => ( is => "ro", isa => Str );
 has category => ( is => "ro", isa => Str );
 has date => ( is => "ro", isa => Str );
 has last_action_date => ( is => "ro", isa => Str );
-has started_from => ( is => "ro", isa => InstanceOf["Rocks::Core::Event"] );
+has started_from => ( is => "ro", isa => InstanceOf["Rocks::Models::Event"] );
 has term => ( is => "ro", isa => PositiveOrZeroInt );
 has three_brief => ( is => "ro", isa => ArrayRef[Str] );
 has manpower => ( is => "ro", isa => Str );
@@ -54,7 +54,7 @@ has license_data => ( is => "ro", isa => Str );
 has education => ( is => "ro", isa => Str );
 has tags => ( is => "ro", isa => ArrayRef[Str] );
 
-has presentations => ( is => "ro", isa => ArrayRef[InstanceOf["Rocks::Core::Presentation"]] );
+has presentations => ( is => "ro", isa => ArrayRef[InstanceOf["Rocks::Models::Presentation"]] );
 
 sub from_record ($class, $record)
 {
@@ -73,7 +73,7 @@ sub from_record ($class, $record)
 
 sub add_presentation
 {
-    state $check = compile(InstanceOf["Rocks::Core::Presentation"]);
+    state $check = compile(InstanceOf["Rocks::Models::Presentation"]);
     my $self = shift;
     my ($pres) = $check->(@_);
     die "did not pass constraints" unless $pres->project == $self;

@@ -12,8 +12,8 @@ use aliased "Google::RestApi::SheetsApi4";
 
 use Rocks::Utils qw[zip2];
 
-use aliased "Rocks::Core::Project";
-use aliased "Rocks::Core::Event";
+use aliased "Rocks::Models::Project";
+use aliased "Rocks::Models::Event";
 
 my $sa = ServiceAccount->new(
     account_file => $ENV{GOOGLE_SERVICE_ACCOUNT_FILE},
