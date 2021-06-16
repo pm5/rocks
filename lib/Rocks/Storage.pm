@@ -1,14 +1,11 @@
 package Rocks::Storage;
 
 use v5.26;
-use utf8;
-use warnings;
-use feature qw(signatures);
-no warnings qw(experimental::signatures);
+use Mojolicious::Lite -signatures;
 
 use Mojo::Pg;
 
-my $schema = do { local $/ = undef; <DATA> };
+my $schema = do { local $/ = undef; join "\n", <DATA> };
 
 sub connect ($user, $pass, $host, $name)
 {
@@ -29,4 +26,8 @@ sub rollback ($db)
 
 __DATA__
 -- 1 up
+CREATE TABLE sources_hackmd (
+    id VARCHAR(64) PRIMARY KEY
+);
 -- 1 down
+DROP TABLE sources_hackmd;

@@ -3,7 +3,6 @@
 use v5.26;
 use Dotenv -load;
 use Mojolicious::Lite -signatures;
-use Moo;
 use Rocks::Models::Project;
 use Rocks::Models::Event;
 use Rocks::Storage;
@@ -16,9 +15,6 @@ my $p = Rocks::Models::Project->from_record({
         event => $e,
         three_words => [qw[happy hacking]],
     });
-
-use Data::Dumper;
-say Dumper($p);
 
 my $db = Rocks::Storage::connect(@ENV{qw[DB_USER DB_PASS DB_HOST DB_NAME]});
 Rocks::Storage::migrate($db);
