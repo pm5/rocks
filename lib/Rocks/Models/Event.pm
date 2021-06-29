@@ -1,14 +1,11 @@
 package Rocks::Models::Event;
 
-use v5.26;
 use Moo;
+use Rocks::Base;
 use Types::Standard qw[Str ArrayRef InstanceOf];
 use Type::Params qw[compile];
 use DateTime;
 use namespace::autoclean;
-
-use feature qw[signatures];
-no warnings qw[experimental::signatures];
 
 has happened_at => ( is => "ro", isa => InstanceOf["DateTime"] );
 has name => ( is => "ro", isa => Str );

@@ -1,12 +1,9 @@
 package Rocks::Models::Presentation;
 
-use v5.26;
 use Moo;
+use Rocks::Base;
 use Types::Standard qw[Str InstanceOf];
 use namespace::autoclean;
-
-use feature qw[signatures];
-no warnings qw[experimental::signatures];
 
 has id => ( is => "ro", isa => Str );
 has slides => ( is => "ro", isa => Str );

@@ -8,8 +8,8 @@ Rocks::Models::Project
 
 =cut
 
-use v5.26;
 use Moo;
+use Rocks::Base;
 use Types::Standard qw[Str Enum ArrayRef Maybe InstanceOf];
 use Types::Common::Numeric qw[PositiveOrZeroInt];
 use Type::Params qw[compile];
